@@ -1,0 +1,159 @@
+<![CDATA[
+<examples>
+  <example name="adding_new_knowledge_entity">
+    <description>Complete workflow for adding a new knowledge entity to the graph</description>
+    <context>When detecting a new knowledge gap that requires creating a completely new concept</context>
+    <code language="xml">
+      <!-- Step 1: Analyze current knowledge -->
+      <use_mcp_tool>
+        <server_name>memory</server_name>
+        <tool_name>read_graph</tool_name>
+        <arguments>
+          {
+            "query": "AI development frameworks"
+          }
+        </arguments>
+      </use_mcp_tool>
+
+      <!-- Step 2: Create new knowledge entity -->
+      <use_mcp_tool>
+        <server_name>memory</server_name>
+        <tool_name>create_entities</tool_name>
+        <arguments>
+          {
+            "entities": [
+              {
+                "name": "LangChain Framework",
+                "entityType": "AI Development Framework",
+                "observations": [
+                  "Used for building language models applications",
+                  "Supports Python programming language",
+                  "Popular in AI research community"
+                ]
+              }
+            ]
+          }
+        </arguments>
+      </use_mcp_tool>
+
+      <!-- Step 3: Verify creation -->
+      <use_mcp_tool>
+        <server_name>memory</server_name>
+        <tool_name>read_graph</tool_name>
+        <arguments>
+          {
+            "query": "LangChain Framework"
+          }
+        </arguments>
+      </use_mcp_tool>
+    </code>
+    <explanation>
+      This example demonstrates the complete workflow for adding a new knowledge entity. First, we check what existing knowledge we have about AI development frameworks. Then we create a new entity for LangChain Framework with appropriate observations. Finally, we verify that the entity was created correctly.
+    </explanation>
+  </example>
+
+  <example name="updating_existing_knowledge">
+    <description>Complete workflow for updating existing knowledge with new information</description>
+    <context>When discovering new facts about an already existing knowledge entity</context>
+    <code language="xml">
+      <!-- Step 1: Check current entity details -->
+      <use_mcp_tool>
+        <server_name>memory</server_name>
+        <tool_name>open_nodes</tool_name>
+        <arguments>
+          {
+            "names": [
+              "LangChain Framework"
+            ]
+          }
+        </arguments>
+      </use_mcp_tool>
+
+      <!-- Step 2: Add new observations to existing entity -->
+      <use_mcp_tool>
+        <server_name>memory</server_name>
+        <tool_name>add_observations</tool_name>
+        <arguments>
+          {
+            "observations": [
+              {
+                "entityName": "LangChain Framework",
+                "contents": [
+                  "Supports integration with OpenAI API",
+                  "Used for building chatbots and conversational AI"
+                ]
+              }
+            ]
+          }
+        </arguments>
+      </use_mcp_tool>
+
+      <!-- Step 3: Verify updates -->
+      <use_mcp_tool>
+        <server_name>memory</server_name>
+        <tool_name>read_graph</tool_name>
+        <arguments>
+          {
+            "query": "LangChain Framework"
+          }
+        </arguments>
+      </use_mcp_tool>
+    </code>
+    <explanation>
+      This example shows how to properly update existing knowledge. We first open the specific entity to review its current state. Then we add new observations about the framework's capabilities. Finally, we verify that our updates were applied correctly.
+    </explanation>
+  </example>
+
+  <example name="knowledge_gap_analysis">
+    <description>Workflow for analyzing and documenting knowledge gaps</description>
+    <context>When the Orchestrator detects a potential knowledge gap that needs filling</context>
+    <code language="xml">
+      <!-- Step 1: Identify knowledge gap -->
+      <use_mcp_tool>
+        <server_name>memory</server_name>
+        <tool_name>search_nodes</tool_name>
+        <arguments>
+          {
+            "query": "machine learning frameworks"
+          }
+        </arguments>
+      </use_mcp_tool>
+
+      <!-- Step 2: Check for related concepts -->
+      <use_mcp_tool>
+        <server_name>memory</server_name>
+        <tool_name>read_graph</tool_name>
+        <arguments>
+          {
+            "query": "AI development"
+          }
+        </arguments>
+      </use_mcp_tool>
+
+      <!-- Step 3: Create comprehensive knowledge entry -->
+      <use_mcp_tool>
+        <server_name>memory</server_name>
+        <tool_name>create_entities</tool_name>
+        <arguments>
+          {
+            "entities": [
+              {
+                "name": "Hugging Face Transformers",
+                "entityType": "Machine Learning Library",
+                "observations": [
+                  "Used for natural language processing tasks",
+                  "Supports pre-trained models for NLP",
+                  "Open source library"
+                ]
+              }
+            ]
+          }
+        </arguments>
+      </use_mcp_tool>
+    </code>
+    <explanation>
+      This example demonstrates how to approach a knowledge gap analysis. We start by searching for related concepts, then examine existing knowledge about AI development. Finally, we create a comprehensive knowledge entry that fills the identified gap with proper observations.
+    </explanation>
+  </example>
+</examples>
+]]>

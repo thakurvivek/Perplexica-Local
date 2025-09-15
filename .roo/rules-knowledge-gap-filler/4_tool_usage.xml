@@ -1,0 +1,141 @@
+<![CDATA[
+<tool_usage_guide>
+  <tool_priorities>
+    <priority level="1">
+      <tool>memory:read_graph</tool>
+      <when>Always check current knowledge graph state first</when>
+      <why>Understanding existing knowledge prevents duplication and ensures consistency</why>
+    </priority>
+    <priority level="2">
+      <tool>memory:create_entities</tool>
+      <when>Adding completely new knowledge to the graph</when>
+      <why>Creates proper entities with correct structure for knowledge storage</why>
+    </priority>
+    <priority level="3">
+      <tool>memory:add_observations</tool>
+      <when>Updating existing knowledge with new information</when>
+      <why>Properly extends existing entities rather than creating duplicates</why>
+    </priority>
+  </tool_priorities>
+
+  <tool_specific_guidance>
+    <tool name="memory:read_graph">
+      <best_practices>
+        <practice>Always check the graph before making changes</practice>
+        <practice>Use specific query parameters to limit results</practice>
+        <practice>Save the graph state for comparison after changes</practice>
+      </best_practices>
+      <example><![CDATA[
+<!-- Example usage for checking knowledge graph -->
+<use_mcp_tool>
+  <server_name>memory</server_name>
+  <tool_name>read_graph</tool_name>
+  <arguments>
+    {
+      "query": "knowledge gap about AI development"
+    }
+  </arguments>
+</use_mcp_tool>
+      ]]></example>
+    </tool>
+
+    <tool name="memory:create_entities">
+      <best_practices>
+        <practice>Define clear entity types and relationships</practice>
+        <practice>Ensure entities have descriptive names</practice>
+        <practice>Include relevant observations with each entity</practice>
+      </best_practices>
+      <example><![CDATA[
+<!-- Example usage for creating new knowledge entities -->
+<use_mcp_tool>
+  <server_name>memory</server_name>
+  <tool_name>create_entities</tool_name>
+  <arguments>
+    {
+      "entities": [
+        {
+          "name": "AI Development Framework",
+          "entityType": "Framework",
+          "observations": [
+            "Used for building AI applications",
+            "Supports machine learning models"
+          ]
+        }
+      ]
+    }
+  </arguments>
+</use_mcp_tool>
+      ]]></example>
+    </tool>
+
+    <tool name="memory:add_observations">
+      <best_practices>
+        <practice>Verify entity exists before adding observations</practice>
+        <practice>Add specific, verifiable facts</practice>
+        <practice>Keep observations concise but informative</practice>
+      </best_practices>
+      <example><![CDATA[
+<!-- Example usage for adding observations to existing entities -->
+<use_mcp_tool>
+  <server_name>memory</server_name>
+  <tool_name>add_observations</tool_name>
+  <arguments>
+    {
+      "observations": [
+        {
+          "entityName": "AI Development Framework",
+          "contents": [
+            "Supports Python and R programming languages"
+          ]
+        }
+      ]
+    }
+  </arguments>
+</use_mcp_tool>
+      ]]></example>
+    </tool>
+
+    <tool name="memory:search_nodes">
+      <best_practices>
+        <practice>Use specific search terms for better results</practice>
+        <practice>Combine multiple search terms for precision</practice>
+        <practice>Review search results before making changes</practice>
+      </best_practices>
+      <example><![CDATA[
+<!-- Example usage for searching knowledge -->
+<use_mcp_tool>
+  <server_name>memory</server_name>
+  <tool_name>search_nodes</tool_name>
+  <arguments>
+    {
+      "query": "AI framework"
+    }
+  </arguments>
+</use_mcp_tool>
+      ]]></example>
+    </tool>
+
+    <tool name="memory:open_nodes">
+      <best_practices>
+        <practice>Open specific entities by name for detailed review</practice>
+        <practice>Check relationships before making changes</practice>
+        <practice>Verify entity details match expectations</practice>
+      </best_practices>
+      <example><![CDATA[
+<!-- Example usage for opening specific knowledge nodes -->
+<use_mcp_tool>
+  <server_name>memory</server_name>
+  <tool_name>open_nodes</tool_name>
+  <arguments>
+    {
+      "names": [
+        "AI Development Framework"
+      ]
+    }
+  </arguments>
+</use_mcp_tool>
+      ]]></example>
+    </tool>
+  </tool_specific_guidance>
+</tool_usage_guide>
+]]>

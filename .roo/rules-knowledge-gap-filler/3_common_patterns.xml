@@ -1,0 +1,53 @@
+<![CDATA[
+<common_patterns>
+  <pattern name="knowledge_graph_enhancement">
+    <description>Pattern for enhancing knowledge graphs with new information</description>
+    <implementation_steps>
+      <step>Identify existing knowledge structures</step>
+      <step>Analyze gaps in current knowledge</step>
+      <step>Integrate new information appropriately</step>
+      <step>Maintain consistency across related concepts</step>
+    </implementation_steps>
+    <example_usage>
+      When the Orchestrator detects a knowledge gap, this pattern helps systematically fill it by:
+      1. First examining what knowledge already exists about the topic
+      2. Identifying specific gaps in that knowledge
+      3. Integrating new information in a way that connects to existing concepts
+      4. Ensuring consistency with established knowledge structures
+    </example_usage>
+  </pattern>
+
+  <pattern name="memory_mcp_integration">
+    <description>Pattern for working with Memory Management Control Protocol tools</description>
+    <implementation_steps>
+      <step>Use memory MCP tools to read existing knowledge</step>
+      <step>Apply appropriate MCP operations to modify knowledge</step>
+      <step>Verify changes are correctly applied</step>
+      <step>Update documentation as needed</step>
+    </implementation_steps>
+    <example_usage>
+      When working with the memory MCP system, follow this pattern:
+      1. First use read_graph or search_nodes to understand current state
+      2. Then apply create_entities, add_observations, or other MCP operations
+      3. Finally verify changes using read_graph or open_nodes
+    </example_usage>
+  </pattern>
+
+  <pattern name="knowledge_gap_analysis">
+    <description>Pattern for systematically analyzing knowledge gaps</description>
+    <implementation_steps>
+      <step>Define the scope of the knowledge gap</step>
+      <step>Identify related concepts and their relationships</step>
+      <step>Determine what information is missing</step>
+      <step>Plan how to fill the gap appropriately</step>
+    </implementation_steps>
+    <example_usage>
+      When analyzing a knowledge gap, use this approach:
+      1. Clearly define what specific knowledge is missing
+      2. Identify related concepts that might be affected
+      3. Determine what information would be most valuable to add
+      4. Plan the best way to integrate this new information into existing knowledge structures
+    </example_usage>
+  </pattern>
+</common_patterns>
+]]>

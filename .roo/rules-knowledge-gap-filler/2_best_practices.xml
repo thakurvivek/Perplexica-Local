@@ -1,0 +1,97 @@
+<![CDATA[
+<best_practices>
+  <general_principles>
+    <principle priority="high">
+      <name>Knowledge Consistency</name>
+      <description>Maintain consistency between new information and existing knowledge graph</description>
+      <rationale>Ensures the knowledge base remains reliable and trustworthy</rationale>
+      <example>
+        <scenario>When adding new entity to knowledge graph</scenario>
+        <good>Verify entity doesn't contradict existing facts before adding</good>
+        <bad>Adding contradictory information without validation</bad>
+      </example>
+    </principle>
+    
+    <principle priority="high">
+      <name>Observation Quality</name>
+      <description>Ensure observations are well-formed and add genuine value to knowledge</description>
+      <rationale>High-quality observations improve the utility of the knowledge graph</rationale>
+      <example>
+        <scenario>When adding observations to entities</scenario>
+        <good>Add specific, verifiable facts with clear context</good>
+        <bad>Add vague or unverifiable information</bad>
+      </example>
+    </principle>
+    
+    <principle priority="medium">
+      <name>Entity Granularity</name>
+      <description>Balance entity specificity with knowledge graph manageability</description>
+      <rationale>Too granular entities create complexity; too broad creates ambiguity</rationale>
+      <example>
+        <scenario>When creating new knowledge entities</scenario>
+        <good>Create entities that represent meaningful concepts</good>
+        <bad>Create entities for every minor detail or variation</bad>
+      </example>
+    </principle>
+  </general_principles>
+
+  <code_conventions>
+    <convention category="naming">
+      <rule>Use descriptive, camelCase names for knowledge entity types</rule>
+      <examples>
+        <good>knowledgeBase, entityRelationship, observationContext</good>
+        <bad>kb, er, oc</bad>
+      </examples>
+    </convention>
+    
+    <convention category="structure">
+      <rule>Organize knowledge graph with clear entity hierarchies</rule>
+      <template>
+        // Example structure for knowledge entities
+        // Entity: {type} 
+        //   - name: {descriptive_name}
+        //   - entityType: {specific_type}
+        //   - observations: [{list_of_facts}]
+      </template>
+    </convention>
+  </code_conventions>
+
+  <common_pitfalls>
+    <pitfall>
+      <description>Adding redundant information</description>
+      <why_problematic>Creates noise in the knowledge graph and increases storage requirements unnecessarily</why_problematic>
+      <correct_approach>Verify new information isn't already present in the knowledge base before adding</correct_approach>
+    </pitfall>
+    
+    <pitfall>
+      <description>Creating entities with ambiguous or overlapping meanings</description>
+      <why_problematic>Reduces the utility of the knowledge graph for search and inference</why_problematic>
+      <correct_approach>Ensure each entity represents a distinct, well-defined concept</correct_approach>
+    </pitfall>
+    
+    <pitfall>
+      <description>Ignoring existing relationships when adding new entities</description>
+      <why_problematic>Can create inconsistencies in the knowledge graph structure</why_problematic>
+      <correct_approach>Review existing entity relationships before creating new ones</correct_approach>
+    </pitfall>
+  </common_pitfalls>
+
+  <quality_checklist>
+    <category name="before_starting">
+      <item>Understand requirements fully for knowledge gap or new information</item>
+      <item>Check existing implementations in knowledge graph</item>
+      <item>Verify MCP server connectivity</item>
+    </category>
+    <category name="during_implementation">
+      <item>Follow established patterns for entity creation</item>
+      <item>Write clear, specific observations</item>
+      <item>Ensure consistency with existing knowledge</item>
+    </category>
+    <category name="before_completion">
+      <item>Review all changes to knowledge graph</item>
+      <item>Verify requirements for new information are met</item>
+      <item>Confirm MCP operations completed successfully</item>
+    </category>
+  </quality_checklist>
+</best_practices>
+]]>
